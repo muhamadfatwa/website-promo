@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Promo Responsif</title>
+<link rel="stylesheet" type="text/css" href="belajar_css">
+
+</head>
+<body>
+  <header>
+    <div class="logo">PROMO SELMA</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="promo-container">
+    <div class="promo-box" data-expired="2025-04-10">
+      <div class="image-wrapper">
+        <img src="SELMA Cashback Hingga 1,4 Juta.jpg" alt="Promo Tebus Koin">
+        <div class="overlay">Promo Berakhir</div>
+      </div>
+      <p>Promo berlaku hingga 30 April 2025</p>
+      <button onclick="pindah('promo1.html')">Selengkapnya</button>
+    </div>
+    
+
+    
+    <div class="promo-box" data-expired="2025-04-10">
+      <div class="image-wrapper">
+      <img src="upgrademember.jpeg" alt="upgrademember">
+      <div class="overlay">Promo Berakhir</div>
+      </div>
+    <p>Promo berlaku hingga 30 April 2025</p>
+    <button onclick="pindah('promo2.html')">Selengkapnya</button>
+  </div>
+
+
+  <div class="promo-box" data-expired="2025-04-30">
+    <div class="image-wrapper">
+      <img src="tebuskoin.jpeg" alt="Promo Tebus Koin">
+      <div class="overlay">Promo Berakhir</div>
+    </div>
+    <p>Promo berlaku hingga 30 April 2025</p>
+    <button onclick="pindah('promo3.html')">Selengkapnya</button>
+  </div>
+
+
+    <div class="promo-box" data-expired="2025-04-30">
+      <h2>CLEARANCE</h2>
+      <h1>UP TO 60% OFF</h1>
+      <p>Produk akhir musim dengan harga miring!</p>
+      <button>Selengkapnya</button>
+    </div>
+  </section>
+<script src="script.js"></script>
+  
+</body>
+</html>

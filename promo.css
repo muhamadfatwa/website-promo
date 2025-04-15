@@ -1,0 +1,109 @@
+
+:root {
+  --primary: #dd5110;
+  --light: #ffffff;
+  --dark: #000000;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.promo-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.promo-text {
+  padding: 20px;
+}
+
+.promo-text h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #333;
+}
+
+.promo-text p {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .promo-container {
+    margin: 20px 10px;
+  }
+}
+ul{
+    text-align: left;
+}
+.kembali{
+    color: whitesmoke;
+}
+
+.kembali button{
+  margin-top: 10px;
+  background-color: #dd5110;
+  border: 2px solid var(--light);
+  color: var(--light);
+  padding: 0.6em 1.5em;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.kembali button:hover {
+  background-color: var(--light);
+  color: var(--primary);
+}
+
+img{
+  width: 370px;
+  height: 440px;
+  border-radius: 10px;
+}
+
+
+/*kode untuk blur*/ 
+.promo-image {
+  position: relative;
+  display: inline-block;
+}
+
+.promo-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  backdrop-filter: blur(2px);
+  display: none;
+}
+
+.blurred {
+  filter: blur(4px);
+}

@@ -62,3 +62,59 @@
   
 </body>
 </html>
+
+
+
+//@version=5
+indicator("PEPE Day Trade Strategy", overlay=true)
+
+// === Moving Averages ===
+ma20 = ta.sma(close, 20)
+ma50 = ta.sma(close, 50)
+
+// === RSI & MACD ===
+rsi = ta.rsi(close, 14)
+[macdLine, signalLine, _] = ta.macd(close, 12, 26, 9)
+
+// === Volume ===
+volAvg = ta.sma(volume, 20)
+volIncrease = volume > volAvg
+
+// === BUY SIGNAL ===
+trendUp = ma20 > ma50
+priceAboveMA = close > ma20
+rsiBullish = rsi > 50
+macdBullish = ta.crossover(macdLine, signalLine)
+
+buySignal = trendUp and priceAboveMA and rsiBullish and macdBullish and volIncrease
+
+// === SELL SIGNAL ===
+rsiOverbought = rsi > 70 and rsi[1] > 70 and rsi < rsi[1]
+macdBearish = ta.crossunder(macdLine, signalLine)
+trendDown = ma20 < ma50
+sellSignal = (rsiOverbought or macdBearish or trendDown) and volume > volAvg
+
+// === Entry price, TP, SL ===
+var float entryPrice = na
+if (buySignal)
+    entryPrice := close
+
+tp = entryPrice * 1.05  // Target profit 5%
+sl = entryPrice * 0.98  // Stop loss 2%
+
+// === Plot Signals ===
+plotshape(buySignal, title="Buy", location=location.belowbar, color=color.green, style=shape.labelup, text="BUY")
+plotshape(sellSignal, title="Sell", location=location.abovebar, color=color.red, style=shape.labeldown, text="SELL")
+
+// === Plot MA ===
+plot(ma20, color=color.blue, title="MA20")
+plot(ma50, color=color.orange, title="MA50")
+
+// === Plot TP/SL ===
+plot(entryPrice ? tp : na, title="Take Profit", color=color.green, style=plot.style_linebr, linewidth=1)
+plot(entryPrice ? sl : na, title="Stop Loss", color=color.red, style=plot.style_linebr, linewidth=1)
+
+// === Alerts ===
+alertcondition(buySignal, title="Buy Alert", message="Sinyal BUY PEPE muncul!")
+alertcondition(sellSignal, title="Sell Alert", message="Sinyal SELL PEPE muncul!")
+*/
